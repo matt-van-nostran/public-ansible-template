@@ -1,0 +1,10 @@
+(?i)EditorConfig
+(?i)logrotate
+(?i)Todo
+[Aa]nsible
+[Rr]syslog
+Active Directory
+Isilon
+Jinja
+Kerberos
+Todo Tree

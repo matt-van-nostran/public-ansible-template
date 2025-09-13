@@ -1,0 +1,68 @@
+{
+  "name": "devcontainer-template-ansible-repo",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker": "latest",
+    // Common-utils Feature applied to base:ubuntu-24.04 already, augmenting
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "configureZshAsDefaultShell": true
+    },
+    // Python Feature can be used to add pipx packages
+    "ghcr.io/devcontainers/features/python:1": {
+      "installTools": true,
+      "toolsToInstall": "ansible-core<2.17,ansible-lint<25.0.0,vale,"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "chrischinchilla.vale-vscode",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "github.copilot-chat",
+        "github.copilot",
+        "gruntfuggly.todo-tree",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "redhat.ansible",
+        "redhat.vscode-yaml",
+        "vscode-icons-team.vscode-icons",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        "ansible.ansible.path": "/usr/local/py-utils/bin/ansible",
+        "ansible.ansibleNavigator.path": "/usr/local/py-utils/bin/ansible-navigator",
+        "ansible.python.interpreterPath": "/usr/local/python/current/bin/python",
+        "ansible.validation.lint.path": "/usr/local/py-utils/bin/ansible-lint",
+        "files.trimFinalNewlines": true,
+        "git.autofetch": true,
+        "git.blame.editorDecoration.enabled": true,
+        "git.blame.editorDecoration.template": "${authorName} (${authorDateAgo}) ${subject}",
+        "git.confirmSync": false,
+        "redhat.telemetry.enabled": false,
+        "telemetry.feedback.enabled": false,
+        "telemetry.telemetryLevel": "off",
+        "vale.enableSpellcheck": true,
+        "vscode.env.isTelemetryEnabled": false,
+        "workbench.iconTheme": "vscode-icons",
+        "editor.rulers": [
+          80,
+          160
+        ],
+        "yaml.customTags": [
+          "!vault scalar"
+        ]
+      }
+    }
+  },
+  "postCreateCommand": "chmod +x ${PROJECT_HOME}/.devcontainer/postCreateCommand.sh && ${PROJECT_HOME}/.devcontainer/postCreateCommand.sh",
+  "remoteEnv": {
+    "ANSIBLE_VAULT_IDENTITY_LIST": "standard@~/.vault-pass.standard,privileged@~/.vault-pass.privileged",
+    "HOST_HOME": "${localEnv:HOME}",
+    "PROJECT_HOME": "${containerWorkspaceFolder}",
+    "REMOTE_USER": "vscode"
+  },
+  "mounts": [
+    "source=${localEnv:HOME},target=${localEnv:HOME},type=bind,readonly"
+  ]
+}

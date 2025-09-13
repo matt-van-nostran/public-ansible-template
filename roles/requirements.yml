@@ -1,0 +1,6 @@
+---
+# Replace with your role requirements or delete this file entirely if you do not
+# need it.
+roles:
+  - name: geerlingguy.java
+    version: "2.3.3"

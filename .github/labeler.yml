@@ -1,0 +1,23 @@
+---
+actions:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/*.yml"
+
+devcontianer:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".devcontainer/**"
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "*.md"
+          - doc/*.md
+          - playbooks/*.md
+
+playbooks:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "*.yml"
+          - playbooks/*.yml

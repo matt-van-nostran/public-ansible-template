@@ -1,0 +1,27 @@
+# Ansible cache files
+.ansible/
+# Ansible facts cache
+.ansible_facts
+# Ansible Vault password file
+.vault_pass
+# Ansible log files
+ansible.log
+ansible.log.*
+ansible-navigator.log
+ansible-navigator.log.*
+*-artifact-*
+# Temporary files
+*.retry
+# Python virtual environment
+venv/
+# Vault password files
+.vault-pass*
+# Editor/IDE specific files
+*.swp
+*.swo
+*.pyc
+*.pyo
+*.idea/
+# Generated files
+docs/_build/
+.DS_Store

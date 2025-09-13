@@ -1,0 +1,7 @@
+[Hh]ostname
+AUDIT
+BUG
+FIXME
+HACK
+host_var(?s)
+iburst

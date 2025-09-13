@@ -1,0 +1,11 @@
+---
+# The site.yaml is intended to run all playbooks and roles. Each of the
+# playbooks or roles listed here would included the actual details for the
+# target inventory, possibly pass extra variables, etc. I've commented out two
+# examples. Update for your needs appropriately.
+
+# - name: Import the enterprise_setup playbook
+#   ansible.builtin.import_playbook: enterprise_setup.yml
+
+# - name: Import the security playbook
+#   ansible.builtin.import_playbook: security.yml

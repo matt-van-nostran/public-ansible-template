@@ -1,0 +1,8 @@
+---
+# Variables that apply to localhost only, as an example.
+# You will want to create a host_var file for each inventory item that you
+# define if you want to be able to override values on a per endpoint basis.
+#
+# Note: Using localhost.yml as a host_var may or may not work, to be honest,
+# this is just filler. Experiment if your needs actually do involve running
+# tasks on the localhost.

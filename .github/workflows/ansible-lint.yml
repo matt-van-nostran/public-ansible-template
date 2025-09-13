@@ -1,0 +1,28 @@
+---
+# .github/workflows/ansible-lint.yml
+name: ansible-lint
+
+on:
+  # Triggers the workflow on pull requests but only for the main branch
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - ".devcontainer/*"
+      - ".gitignore"
+      - ".vscode/*"
+      - "*/README.md"
+      - "collections/.gitignore"
+      - "collections/README.md"
+      - "README.md"
+      - "roles/.gitignore"
+      - "roles/README.md"
+
+jobs:
+  build:
+    name: Ansible Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ansible-lint
+        uses: ansible/ansible-lint@main # or version tag instead of 'main'
