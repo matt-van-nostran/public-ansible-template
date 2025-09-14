@@ -1,0 +1,27 @@
+---
+- name: Set Message of the Day content
+  hosts: all
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: MOTD | Ensure /etc/motd contains the desired message
+      ansible.builtin.copy:
+        dest: /etc/motd
+        content: "{{ motd_content }}"
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: MOTD | Find all files in /etc/motd.d/
+      ansible.builtin.find:
+        paths: /etc/motd.d/
+        file_type: file
+      register: files_to_delete
+
+    - name: MOTD | Ensure no files are present in /etc/motd.d/
+      ansible.builtin.file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ files_to_delete.files }}"
+      when: files_to_delete.matched > 0
